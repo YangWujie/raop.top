@@ -67,6 +67,14 @@ languages:
       description: "یک نمونه برای پوسته داکسی"
       time_format_default: 2006.01.02
       time_format_blog: 2006.01.02
+  zh:
+    languageName: 中文
+    contentDir: content/zh
+    title: 对话录
+    params:
+      description: 所见所闻，随想随记
+      time_format_default: 2006-01-02
+      time_format_blog: 2006-01-02
   # cSpell:enable
 
 markup:
