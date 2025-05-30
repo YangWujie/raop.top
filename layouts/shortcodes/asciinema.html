@@ -1,0 +1,11 @@
+<div id="asciinema-{{ .Get "file" | md5 }}"></div>
+<link rel="stylesheet" href="/css/asciinema-player.css" />
+<script src="/js/asciinema-player.min.js"></script>
+<script>
+  AsciinemaPlayer.create('{{ .Get "file" }}', document.getElementById('asciinema-{{ .Get "file" | md5 }}'), {
+    theme: '{{ .Get "theme" | default "dracula" }}',
+    loop: {{ .Get "loop" | default "false" }},
+    autoPlay: {{ .Get "autoplay" | default "false" }},
+    speed: {{ .Get "speed" | default 1 }}
+  });
+</script>
