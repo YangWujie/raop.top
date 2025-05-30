@@ -41,6 +41,28 @@ set substitute-path /build/glibc-*/ /usr/src/glibc/glibc-<version>/
 ```
 请将 `<version>` 替换为实际解压出来的目录名，比如 `2.35`.
 
+注：上面的办法不管用。用下面的：
+
+```
+directory /usr/src/glibc/glibc-2.35/
+```
+
+有，可以通过以下方法让 gdb 每次自动加载源码路径，无需每次手动设置：
+
+在你的主目录下创建或编辑 `~/.gdbinit` 文件，加入如下内容：
+
+```
+directory /usr/src/glibc/glibc-2.35/
+```
+
+这样每次启动 gdb 时都会自动添加该源码路径。
+
+如果只想对某个项目生效，可以在项目根目录下创建 `.gdbinit` 文件，内容同上。gdb 启动时会自动读取当前目录下的 `.gdbinit`。
+
+**注意：**  
+- `~/.gdbinit` 影响所有 gdb 会话。  
+- 项目目录下的 `.gdbinit` 只影响该目录下的调试。
+
 ---
 
 ### 步骤四：gdb 调试
