@@ -1,0 +1,33 @@
+{{ $url := .Get "url" }}
+{{ $width := default "100%" (.Get "width") }}
+{{ $height := default "600px" (.Get "height") }}
+{{ $maxWidth := default "1200px" (.Get "max-width") }}
+{{ $title := default "Embedded Content" (.Get "title") }} {# Add a title parameter #}
+
+{{ if not $url }}
+    {{ errorf "The 'iframe_embed' shortcode requires a 'url' parameter. See %s" .Position }}
+{{ end }}
+
+<div style="
+    width: {{ $width }};
+    height: {{ $height }};
+    max-width: {{ $maxWidth }};
+    margin: 20px auto; /* 居中显示 */
+    border: 1px solid #ddd; /* 可选的边框 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 可选的阴影 */
+    overflow: hidden; /* 隐藏容器可能出现的滚动条 */
+    border-radius: 8px; /* 可选的圆角 */
+">
+    <iframe
+        src="{{ $url }}"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        loading="lazy"
+        title="{{ $title }}" {# Use the title parameter here #}
+    >
+        <p>您的浏览器不支持内联框架（iframes）。</p>
+    </iframe>
+</div>

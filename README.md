@@ -1,5 +1,7 @@
 # Docsy Example
 
+[准备工作](https://www.docsy.dev/docs/get-started/docsy-as-module/installation-prerequisites/)
+
 [Docsy][] is a [Hugo theme module][] for technical documentation sites, providing easy
 site navigation, structure, and more. This **Docsy Example Project** uses the Docsy
 theme component as a hugo module and provides a skeleton documentation structure for you to use.
